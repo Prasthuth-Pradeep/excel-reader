@@ -1,0 +1,15 @@
+<script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<div class="file-upload">
+
+  <div class="image-upload-wrap">
+    <input class="file-upload-input" type='file' accept=".xls,.xlsx" 
+    (change)="fileUpload($event)"/>
+    <div class="drag-text">
+      <h3>Drag and drop a file or select add Image</h3>
+    </div>
+  </div>
+</div>
+
+<div>
+    <pre>{{extracedData}}</pre>
+</div>
