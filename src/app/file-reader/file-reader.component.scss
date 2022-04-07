@@ -114,3 +114,26 @@ body {
   border: 0;
   transition: all .2s ease;
 }
+
+.container{
+  width: 60vw;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  padding: 20px;
+}
+.set{
+  border: 1px solid black;
+  margin: 5px;
+  padding: 10px;
+}
+.color{
+  color: red;
+}
+.title{
+  margin-right: 5px;
+  color: black
+}
+.selected_data{
+  display: flex;
+  flex-direction: column;
+}

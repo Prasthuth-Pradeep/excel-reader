@@ -2,14 +2,158 @@
 <div class="file-upload">
 
   <div class="image-upload-wrap">
-    <input class="file-upload-input" type='file' accept=".xls,.xlsx" 
-    (change)="fileUpload($event)"/>
+    <input class="file-upload-input" type='file' accept=".xls,.xlsx" (change)="fileUpload($event)" />
     <div class="drag-text">
       <h3>Drag and drop a file or select add Image</h3>
     </div>
   </div>
 </div>
 
-<div>
-    <pre>{{extracedData}}</pre>
+<div class="container">
+  <div class="list">
+    <h4>Instance name</h4>
+    <div *ngFor="let data of extracedData ">
+      <span (click)="onInstance(data.API_Name)">{{data.API_Name}}</span>
+    </div>
+  </div>
+  <div class="result">
+    <div *ngFor="let data of extracedData ">
+      <div class="selected_data" *ngIf="data.API_Name == onSelectData">
+        <div class="set">
+          <span class="title">Name</span>
+          <span class="color">{{ data.Name }}</span>
+        </div>
+        <div class="set">
+          <span class="title">Memory</span>
+          <span class="color">{{ data.Memory }}</span>
+        </div>
+        <div class="set">
+          <span class="title">Compute_Units_ECU</span>
+          <span class="color">{{ data.Compute_Units_ECU }}</span>
+        </div>
+        <div class="set">
+          <span class="title">vCPUs</span>
+          <span class="color">{{ data.vCPUs }}</span>
+        </div>
+        <div class="set">
+          <span class="title">GiB_of_Memory_per_vCPU</span>
+          <span class="color">{{ data.GiB_of_Memory_per_vCPU }}</span>
+        </div>
+        <div class="set">
+          <span class="title">GPU_model</span>
+          <span class="color">{{ data.GPU_model }}</span>
+        </div>
+        <div class="set">
+          <span class="title">GPU_memory</span>
+          <span class="color">{{ data.GPU_memory }}</span>
+        </div>
+        <div class="set">
+          <span class="title">CUDA_Compute_Capability</span>
+          <span class="color">{{ data.CUDA_Compute_Capability }}</span>
+        </div>
+        <div class="set">
+          <span class="title">FPGAs</span>
+          <span class="color">{{ data.FPGAs }}</span>
+        </div>
+        <div class="set">
+          <span class="title">ECU_per_vCPU</span>
+          <span class="color">{{ data.ECU_per_vCPU }}</span>
+        </div>
+        <div class="set">
+          <span class="title">Physical_Processor</span>
+          <span class="color">{{ data.Physical_Processor }}</span>
+        </div>
+        <div class="set">
+          <span class="title">Clock_Speed_GHz</span>
+          <span class="color">{{ data.Clock_Speed_GHz }}</span>
+        </div>
+        <div class="set">
+          <span class="title">Instance_Storage</span>
+          <span class="color">{{ data.Instance_Storage }}</span>
+        </div>
+        <div class="set">
+          <span class="title">Instance_Storage_already_warmed_up</span>
+          <span class="color">{{ data.Instance_Storage_already_warmed_up }}</span>
+        </div>
+        <div class="set">
+          <span class="title">Instance_Storage_SSD_TRIM_Support</span>
+          <span class="color">{{ data.Instance_Storage_SSD_TRIM_Support }}</span>
+        </div>
+        <div class="set">
+          <span class="title">Arch</span>
+          <span class="color">{{ data.Arch }}</span>
+        </div>
+        <div class="set">
+          <span class="title">Network_Performance</span>
+          <span class="color">{{ data.Network_Performance }}</span>
+        </div>
+        <div class="set">
+          <span class="title">EBS_Optimized_Max_Bandwidth</span>
+          <span class="color">{{ data.EBS_Optimized_Max_Bandwidth }}</span>
+        </div>
+        <div class="set">
+          <span class="title">EBS_Optimized_Max_Throughput_128</span>
+          <span class="color">{{ data.EBS_Optimized_Max_Throughput_128 }}</span>
+        </div>
+        <div class="set">
+          <span class="title">EBS_Exposed_as_NVMe</span>
+          <span class="color">{{ data.EBS_Exposed_as_NVMe }}</span>
+        </div>
+        <div class="set">
+          <span class="title">Max_IPs</span>
+          <span class="color">{{ data.Max_IPs }}</span>
+        </div>
+        <div class="set">
+          <span class="title">Max_ENIs</span>
+          <span class="color">{{ data.Max_ENIs }}</span>
+        </div>
+        <div class="set">
+          <span class="title">EBS_Optimized_Max_IOPS_16K</span>
+          <span class="color">{{ data.EBS_Optimized_Max_IOPS_16K }}</span>
+        </div>
+
+
+        <!-- EBS_Exposed_as_NVMe: string,
+    Max_IPs: string
+    Max_ENIs: string,
+    Enhanced_Networking: string,
+    VPC_Only: string,
+    IPv6_Support: string,
+    Placement_Group_Support: string,
+    Linux_Virtualization: string,
+    On_EMR: string,
+    Availability_Zones: string,
+    Linux_On_Demand_cost: string,
+    Linux_Reserved_cost: string,
+    Linux_Spot_Minimum_cost: string,
+    Linux_Spot_Maximum_cost: string,
+    RHEL_On_Demand_cost: string,
+    RHEL_Reserved_cost: string,
+    RHEL_Spot_Minimum_cost: string,
+    RHEL_Spot_Maximum_cost: string,
+    SLES_On_Demand_cost: string,
+    SLES_Reserved_cost: string,
+    SLES_Spot_Minimum_cost: string,
+    SLES_Spot_Maximum_cost: string,
+    Windows_On_Demand_cost: string,
+    Windows_Reserved_cost: string,
+    Windows_Spot_Minimum_cost: string,
+    Windows_Spot_Maximum_cost: string,
+    Windows_SQL_Web_On_Demand_cost: string,
+    Windows_SQL_Web_Reserved_cost: string,
+    Windows_SQL_Std_On_Demand_cost: string,
+    Windows_SQL_Std_Reserved_cost: string,
+    Windows_SQL_Ent_On_Demand_cost: string,
+    Windows_SQL_Ent_Reserved_cost: string,
+    Linux_SQL_Web_On_Demand_cost: string,
+    Linux_SQL_Web_Reserved_cost:string,
+    Linux_SQL_Std_On_Demand_cost: string,
+    Linux_SQL_Std_Reserved_cost: string,
+    Linux_SQL_Ent_On_Demand_cost: string,
+    Linux_SQL_Ent_Reserved_cost: string,
+    EBS_Optimized_surcharge: string,
+    EMR_cost: string -->
+      </div>
+    </div>
+  </div>
 </div>

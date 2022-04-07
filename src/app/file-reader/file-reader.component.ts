@@ -9,38 +9,29 @@ import * as XLSX from 'xlsx';
 })
 export class FileReaderComponent implements OnInit {
 
-
-  name: string = '';
-  extracedData!:any;
+  extracedData!: IData[];
+  onSelectData!: string;
   constructor() { }
 
   ngOnInit(): void {
-    this.value()
   }
 
   fileUpload(event: any) {
-    // console.log(event.target.files)
     const selectedFile = event.target.files[0];
     const fileReader = new FileReader();
     fileReader.readAsBinaryString(selectedFile);
     fileReader.onload = (event) => {
       let binayData = event.target?.result;
-      let workBook = XLSX.read(binayData, { type: 'binary'});
-      workBook.SheetNames.forEach( sheet => {
-        const data = XLSX.utils.sheet_to_json(workBook.Sheets[sheet])
-        console.log(data)
-        this.extracedData = JSON.stringify(data, undefined, 4)
+      let workBook = XLSX.read(binayData, { type: 'binary' });
+      workBook.SheetNames.forEach(sheet => {
+        const data: IData[] = XLSX.utils.sheet_to_json(workBook.Sheets[sheet])
+        this.extracedData = data
+        console.log(this.extracedData)
       })
     }
   }
 
-  value(){
-    // vehicleNumberPlate: this.vehicleForm.get('vehicleNumberPlate').value,
-    // this.name = this.extracedData[0].forEach((element: IData) => {
-    //   element.API_Name;
-    // });
-    this.name = this.extracedData.get('API_Name').value
-    console.log(this.name)
+  onInstance(instanceName: string) {
+   this.onSelectData = instanceName
   }
-
 }
