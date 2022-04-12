@@ -137,3 +137,11 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+.container-m{
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  height: fit-content;
+  width: fit-content;
+  border: 1px solid black;
+}

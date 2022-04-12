@@ -31,7 +31,7 @@ export interface IData {
     Linux_Virtualization: string,
     On_EMR: string,
     Availability_Zones: string,
-    Linux_On_Demand_cost: string,
+    Linux_On_Demand_cost: number,
     Linux_Reserved_cost: string,
     Linux_Spot_Minimum_cost: string,
     Linux_Spot_Maximum_cost: string,
@@ -61,4 +61,13 @@ export interface IData {
     Linux_SQL_Ent_Reserved_cost: string,
     EBS_Optimized_surcharge: string,
     EMR_cost: string
+}
+
+export interface ISearchData{
+    serverId: string,
+    serverName: string,
+    vCPUs: string,
+    memoryIn: string,
+    storageIn: number,
+    IOPS: number
 }
